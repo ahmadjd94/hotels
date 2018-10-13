@@ -3,15 +3,15 @@ from rest_framework.response import Response
 
 from ..models import Hotel
 from ..serializers import CrazyHotelsSerializer
-from ..query import AvailableHotelsQuerySerializer
+from ..query import CrazyHotelsQuerySerializer
 
 
 class CrazyHotel(APIView):
     """
-    List all snippets, or create a new snippet.
+    Crazy Hotel API
     """
     def get(self, request, format=None):
-        query = AvailableHotelsQuerySerializer(data=request.query_params)
+        query = CrazyHotelsQuerySerializer(data=request.query_params)
 
         if query.is_valid():
             hotels = Hotel.objects.filter(**query.data)

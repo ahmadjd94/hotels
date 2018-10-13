@@ -23,7 +23,7 @@ class CrazyHotelsQuerySerializer(Serializer):
             })
 
             raise ValidationError(errors)
-
+        print(data)
         return data
 
     def to_representation(self, instance):
@@ -40,7 +40,7 @@ class CrazyHotelsQuerySerializer(Serializer):
 
         if "adultsCount" in data:
             kwargs.update({
-                "adultsCount": data["adultsCount"]
+                "number_of_adults": data["adultsCount"]
             })
 
         return kwargs

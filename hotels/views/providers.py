@@ -8,7 +8,7 @@ from ..serializers import ProviderSerializer
 
 class Providers(APIView):
     """
-    List all snippets, or create a new snippet.
+    Providers API
     """
     def get(self, request, format=None):
         provider = Provider.objects.all()

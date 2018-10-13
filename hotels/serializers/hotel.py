@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import datetime,date
 from rest_framework.serializers import (
     ModelSerializer, CharField, IntegerField, PrimaryKeyRelatedField, FloatField,
-    DateTimeField
+    DateField
 )
 
 from .amenity import AmenitySerializer
@@ -16,11 +16,12 @@ class HotelsSerializer(ModelSerializer):
     number_of_adults = IntegerField(required=True, min_value=0, max_value=20)
     discount = FloatField(required=False, min_value=0, max_value=1, default=0)
     city = CharField(min_length=3, max_length=3)
-    availability = DateTimeField(default=datetime.now)
+    availability = DateField(default=date.today)
 
     class Meta:
         model = Hotel
-        fields = ("availability", "name", "provider", "fare", "city", "rate", "number_of_adults")
+        fields = ("availability", "name", "provider", "fare", "city", "rate",
+                  "number_of_adults", "discount")
 
 
 class AvailableHotelsSerializer(ModelSerializer):

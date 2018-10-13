@@ -8,7 +8,7 @@ from ..query import AvailableHotelsQuerySerializer
 
 class BestHotel(APIView):
     """
-    List all snippets, or create a new snippet.
+    Best Hotel API
     """
     def get(self, request, format=None):
         query = AvailableHotelsQuerySerializer(data=request.query_params)

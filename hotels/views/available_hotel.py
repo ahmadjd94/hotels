@@ -9,7 +9,7 @@ from ..query import AvailableHotelsQuerySerializer
 
 class AvailableHotel(APIView):
     """
-    List all snippets, or create a new snippet.
+    AvailableHotel Api
     """
     def get(self, request):
         query = AvailableHotelsQuerySerializer(data=request.query_params)
@@ -19,12 +19,4 @@ class AvailableHotel(APIView):
             serializer = AvailableHotelsSerializer(hotels, many=True)
             return Response(serializer.data)
 
-        return Response(status=400, data=query.errors)
-
-
-    def post(self, request):
-        serializer = HotelsSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_400_BAD_REQUEST, data=query.errors)
