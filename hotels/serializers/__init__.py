@@ -1,4 +1,10 @@
+from  .amenity import AmenitySerializer
 from .provider import ProviderSerializer
-from .hotel import AvailableHotelsSerializer, HotelsSerializer
+from .hotel import (
+	AvailableHotelsSerializer, HotelsSerializer, BestHotelsSerializer, CrazyHotelsSerializer
+)
 
-__all__ = ("ProviderSerializer", "AvailableHotelsSerializer", "HotelsSerializer")
+__all__ = (
+	"AmenitySerializer", "AvailableHotelsSerializer", "BestHotelsSerializer",
+	"CrazyHotelsSerializer", "HotelsSerializer", "ProviderSerializer"
+)

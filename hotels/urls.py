@@ -1,23 +1,10 @@
-"""hotels URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from . import views
 from django.urls import path
 
 urlpatterns = [
     path('providers', views.Providers.as_view()),
-    path('available_hotels', views.AvailableHotels.as_view()),
-    # path('crazy_hotels/', admin.site.urls),
+    path('AvailableHotel', views.AvailableHotel.as_view()),
+    path('AvailableHotel/<int:hotel_id>/Amenity', views.HotelAmenity.as_view()),
+    path('BestHotel', views.BestHotel.as_view()),
+    path('CrazyHotel', views.CrazyHotel.as_view()),
 ]

@@ -9,3 +9,6 @@ class Provider(models.Model):
 
     class Meta:
             db_table = "provider"
+
+    def __str__(self):
+        return self.name
